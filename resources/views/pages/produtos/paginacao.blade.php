@@ -33,7 +33,7 @@
                     <td>{{ 'R$' . ' ' . number_format($produto->valor, 2, ',', '.') }}</td>
                     <td>
                         <a href="" class="btn btn-light btn-sm">Editar</a>
-                        <a href="" class="btn btn-danger btn-sm">Excluir</a>
+                        <a href="{{ route('produto.delete') }}" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
                 @endforeach
