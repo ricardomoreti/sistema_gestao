@@ -20,14 +20,13 @@ class ProdutoController extends Controller
         return view('pages.produtos.paginacao', compact('findProduto'));
     }
 
-    public function create()
+    public function create(Request $request )
     {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
+        if($request->method() == "POST") {
+            //cria os dados
+        }
+        //senão cria uma tela na view
+        return view('pages.produtos.create');
     }
 
     public function show(string $id)
@@ -45,8 +44,11 @@ class ProdutoController extends Controller
         //
     }
 
-    public function delete(Request $request)
+    public function delete($produto)
     {
-        
+        $buscaRegistro = Produto::find($produto);
+        $buscaRegistro->delete();
+
+        return redirect()->route('produto.index');
     }
 }
