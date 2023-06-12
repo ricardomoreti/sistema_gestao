@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-    public function index()
+    public function __construct(Produto $produto)
+    {
+        $this->produto = $produto;
+    }
+
+    public function index(Request $request)
     {
         $findProduto = Produto::all();
 
