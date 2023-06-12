@@ -13,6 +13,9 @@
         </form>
 
         <div class="table-responsive mt-4">
+            @if ($findProduto->isEmpty())
+                <p>Não existe dados</p>
+            @else
             <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -24,8 +27,6 @@
             </thead>
             <tbody>
                 @foreach ($findProduto as $produto)
-
-                @endforeach
                 <tr>
                     <td>{{ $produto->id }}</td>
                     <td>{{ $produto->nome }}</td>
@@ -35,7 +36,9 @@
                         <a href="" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
             </table>
+            @endif
         </div>
 @endsection
